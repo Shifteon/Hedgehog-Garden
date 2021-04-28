@@ -12,6 +12,11 @@ class Hedgehog:
             self.hunger -= Food.calories
         if (self.hunger < 0):
             self.hunger = 0
+        self.health += Food.nourishment
+        if (self.health < 0):
+            self.health = 0
+        if (self.health > 500):
+            self.health = 500
         if (Food.hasEffect):
             Food.applyEffect()
     def wash(self):
@@ -33,7 +38,7 @@ class Hedgehog:
         print("Hunger: ", self.hunger)
         print("Hygeine:", self.hygeine)
     def isMaxStatus(self):
-        pass
+        return self.hunger == self.maxStats[0] and self.health == self.maxStats[1] and self.hygeine == self.maxStats[2]
 
 class SpecialHog(Hedgehog):
     def __init__(self):

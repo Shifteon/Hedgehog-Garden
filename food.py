@@ -14,10 +14,12 @@ class Orange(Food):
 
 class Cake(Food):
     def __init__(self):
+        super().__init__()
         self.calories = 200
         self.nourishment = -10
 
 class Kibble(Food):
     def __init__(self):
+        super().__init__()
         self.calories = 50
         self.nourishment = 0
