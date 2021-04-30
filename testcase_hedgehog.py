@@ -89,5 +89,6 @@ class testHedgehog(unittest.TestCase):
         assert(hedgehog.isMaxStatus() == False)
     # Teardown
 
-if __name__ == '__main__':
-    unittest.main()
+def suite():
+    suite = unittest.TestLoader().loadTestsFromTestCase(testHedgehog)
+    return suite
