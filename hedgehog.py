@@ -6,6 +6,7 @@ class Hedgehog:
         self.hunger = 500
         self.health = 100
         self.hygeine = 100
+        # Max stats for hedgehog. Hunger, health, hygeine
         self.maxStats = (0, 500, 500)
     def feed(self, Food):
         if (self.hunger > 0):
