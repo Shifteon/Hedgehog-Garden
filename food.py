@@ -9,6 +9,7 @@ class Orange(Food):
         self.calories = 100
         self.nourishment = 20
         self.hasEffect = True
+        self.name = "Orange"
     def applyEffect(self):
         pass
 
@@ -17,9 +18,11 @@ class Cake(Food):
         super().__init__()
         self.calories = 200
         self.nourishment = -10
+        self.name = "Cake"
 
 class Kibble(Food):
     def __init__(self):
         super().__init__()
         self.calories = 50
         self.nourishment = 0
+        self.name = "Kibble"
