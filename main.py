@@ -1,6 +1,3 @@
-from hedgehog import Hedgehog, SpecialHog
-from food import Food, Orange
-from player import Player
 from game import Game
 import os
 
