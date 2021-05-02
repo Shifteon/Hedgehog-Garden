@@ -1,4 +1,4 @@
-from hedgehog import Hedgehog
+from hedgehog import Hedgehog, SpecialHog
 from food import Food, Orange, Kibble, Cake
 from player import Player
 
@@ -13,15 +13,84 @@ class Game:
         Enter a minimum value and a max value.
         """
         selection = int(input())
+        # Input can't be invalid
         while selection < min or selection > max:
             selection = int(input("Please input a valid option: "))
         return selection
 
     def displayHedgehogs(self):
-        pass
+        """
+        Displays all the player's hedgehogs
+        """
+        i = 1
+        for hedgehog in self.player.hedgehogs:
+            print("Hedgehog number {}: ".format(i))
+            hedgehog.draw()
+            i += 1
 
     def displayFood(self):
-        pass
+        """
+        Displays all the player's food
+        """
+        i = 1
+        for food in self.player.food:
+            print("Food number {}: {}".format(i, food.name))
+            i += 1
+
+    def feed(self):
+        """
+        Feed a specific hedgehog.
+        """
+        # Select a hedgehog
+        print("Select a hedgehog by number: ")
+        self.displayHedgehogs()
+        hedgehogNum = self.getInput(1, len(self.player.hedgehogs))
+
+        # Select what to feed it
+        print("Select a food: ")
+        self.displayFood()
+        foodNum = self.getInput(1, len(self.player.food))
+
+        # Feed the hedgehog and remove the food fed from the player
+        self.player.hedgehogs[hedgehogNum - 1].feed(self.player.food[foodNum - 1])
+        self.player.food.pop(foodNum - 1)
+
+        # Let the player know that their hedgehog has been fed
+        print("{} has been fed!".format(self.player.hedgehogs[hedgehogNum - 1].name))
+        input("Press ENTER to continue: ")
+
+    def exercise(self):
+        """
+        Exercise a specific hedgehog.
+        """
+        # Select a hedgehog
+        print("Select a hedgehog by number: ")
+        self.displayHedgehogs()
+        hedgehogNum = self.getInput(1, len(self.player.hedgehogs))
+
+        # Exercise the hedgehog
+        self.player.hedgehogs[hedgehogNum - 1].exercise()
+
+        # Let the player know that their hedgehog has been exercised
+        print("{} has been exercised!".format(self.player.hedgehogs[hedgehogNum - 1].name))
+        input("Press ENTER to continue: ")
+
+    def wash(self):
+        """
+        Wash a specific hedgehog.
+        """
+        # Select a hedgehog
+        print("Select a hedgehog by number: ")
+        self.displayHedgehogs()
+        hedgehogNum = self.getInput(1, len(self.player.hedgehogs))
+
+        # Wash the hedgehog
+        self.player.hedgehogs[hedgehogNum - 1].wash()
+
+        # Let the player know that their hedgehog has been washed
+        print("{} has been washed!".format(self.player.hedgehogs[hedgehogNum - 1].name))
+        input("Press ENTER to continue: ")
+
 
     def menu(self):
         """
@@ -35,40 +104,85 @@ class Game:
         print("5 - Wash")
         print("6 - Exercise")
         print("7 - Quit")
-        selection = self.getInput(1, 7)
+
+        # Get the player's selection and act on it
+        selection = self.getInput(1, 8)
         if selection == 1:
             self.displayHedgehogs()
+            input("Press ENTER to continue: ")
         elif selection == 2:
             self.displayStatus()
         elif selection == 3:
             self.displayFood()
+            input("Press ENTER to continue: ")
         elif selection == 4:
-            for hedgehog in self.player.hedgehogs:
-                orange = Orange()
-                hedgehog.feed(orange)
+            self.feed()
         elif selection == 5:
-            for hedgehog in self.player.hedgehogs:
-                hedgehog.wash()
+            self.wash()
         elif selection == 6:
-            pass
+            self.exercise()
         elif selection == 7:
             return False
+        # For debugging. Remove for actual product
+        elif selection == 8:
+            newHedgehog = SpecialHog()
+            self.player.hedgehogs.append(newHedgehog)
         return True
 
     def displayStatus(self):
+        """
+        Displays every hedgehog's status
+        """
         for hedgehog in self.player.hedgehogs:
             print(hedgehog.name)
             hedgehog.displayStatus()
-        input("Press any ENTER to continue: ")
+        input("Press ENTER to continue: ")
 
     def canGetNewHedgehog(self):    
+        """
+        Determines if a hedgehog has max stats, meaning that the player gets a new hedgehog.
+        Also makes sure that the player hasn't already got a new hedgheog from the hedgehog.
+        """
         for hedgehog in self.player.hedgehogs:
-            if hedgehog.isMaxStatus():
+            # Does the hedgehog have max status and can it produce a hedgehog?
+            if hedgehog.isMaxStatus() and hedgehog.canGetNewHog == True and len(self.player.hedgehogs) < 5:
+                name = input("You just got a new hedgehog! What will you name them? ")
+                # Create new hedgehog and append them to player's hedgehog list
                 newHedgehog = Hedgehog()
+                newHedgehog.name = name
                 self.player.hedgehogs.append(newHedgehog)
+                # You can't get any more hedgehogs from this hedgehog
+                hedgehog.canGetNewHog = False
 
-    def getNewHedgehog(self):
-        pass
+    def canGetSpecialHog(self):
+        """
+        Determines if the user can get the final "Special" hedgehog
+        """
+        # Make sure they have 5 hedgehogs
+        if len(self.player.hedgehogs) == 5:
+            # Make sure all the hedgehogs have max status
+            if (self.player.hedgehogs[0].isMaxStatus() 
+                and self.player.hedgehogs[1].isMaxStatus()
+                and self.player.hedgehogs[2].isMaxStatus() 
+                and self.player.hedgehogs[3].isMaxStatus()
+                and self.player.hedgehogs[4].isMaxStatus()):
+                name = input("You just got a special hedgehog! What will you name them? ")
+                # Create new hedgehog and append them to player's hedgehog list
+                newHedgehog = SpecialHog()
+                newHedgehog.name = name
+                self.player.hedgehogs.append(newHedgehog)
+                return True
+
+    def win(self):
+        if self.canGetSpecialHog() and self.player.hedgehogs[5].isMaxStatus():
+            print("You got your SPECIAL hedgehog to max status and won!")
+            print("Select '7' on the menu ti exit the game.")
+
 
     def update(self):
+        """
+        Things that need to happen every iteration of the game loop.
+        """
         self.canGetNewHedgehog()
+        self.canGetSpecialHog()
+        self.win()
