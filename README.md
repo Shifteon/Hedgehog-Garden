@@ -2,17 +2,20 @@
 
 Learning object oriented and test driven development principles in Python.
 
-{Provide a description the software that you wrote to demonstrate the Python language.}
+Hedgehog Garden is a console based game where you collect and take care of hedgehogs.
+You can wash, feed, and exercise them. Each hedgehog has stats that you want to max out.
+When a hedgehog's stats are maxed out, you get a new hedgehog. The goal of the game is to
+collect the last "special" hedgehog and max out their stats.
 
-{Describe your purpose for writing this software.}
+By writing this software, I hope to provide a fun and relaxing game for people to enjoy.
+I also hope to better understand programming concepts in Python.
 
 [Software Demo Video](http://youtube.link.goes.here)
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
-
-{Describe the programming language that you used and any libraries.}
+* Visual Studio Code
+* Python 3.8.2
 
 # Useful Websites
 
@@ -22,3 +25,4 @@ Learning object oriented and test driven development principles in Python.
 # Future Work
 
 * Implement methods
+* Create a food store
