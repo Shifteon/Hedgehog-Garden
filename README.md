@@ -1,6 +1,6 @@
 # Overview
 
-Learning object oriented and test driven principles in Python.
+Learning object oriented and test driven development principles in Python.
 
 {Provide a description the software that you wrote to demonstrate the Python language.}
 
@@ -17,9 +17,8 @@ Learning object oriented and test driven principles in Python.
 # Useful Websites
 
 * [freeCodeCamp](https://www.freecodecamp.org/news/learning-to-test-with-python-997ace2d8abe/)
-* [Web Site Name](http://url.link.goes.here)
+* [Python Unit Test](https://docs.python.org/2/library/unittest.html#)
 
 # Future Work
 
-* Write tests
 * Implement methods
