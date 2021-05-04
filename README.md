@@ -28,3 +28,4 @@ I also hope to better understand programming concepts in Python.
 # Future Work
 
 * Refactor code
+* Improve UI
