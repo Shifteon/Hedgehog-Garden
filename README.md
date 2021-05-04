@@ -16,6 +16,7 @@ I also hope to better understand programming concepts in Python.
 
 * Visual Studio Code
 * Python 3.8.2
+* JSON
 
 # Useful Websites
 
