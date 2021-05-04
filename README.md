@@ -25,5 +25,4 @@ I also hope to better understand programming concepts in Python.
 
 # Future Work
 
-* Implement methods
-* Create a food store
+* Refactor code
