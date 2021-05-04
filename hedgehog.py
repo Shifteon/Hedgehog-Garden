@@ -57,7 +57,7 @@ class Hedgehog:
         """
         Draw a hedgehog.
         """
-        print(self.name)
+        # print(self.name)
         print(" .|||||||||. \n|||||||||||||\n|||||||||||' .\\\n`||||||||||_,__o")
 
     def displayStatus(self):

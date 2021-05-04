@@ -33,7 +33,7 @@ class Game:
         """
         i = 1
         for hedgehog in self.player.hedgehogs:
-            print("Hedgehog number {}: ".format(i))
+            print("Hedgehog number {}: {}".format(i, hedgehog.name))
             hedgehog.draw()
             i += 1
 
