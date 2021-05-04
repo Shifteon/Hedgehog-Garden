@@ -23,6 +23,7 @@ I also hope to better understand programming concepts in Python.
 * [freeCodeCamp](https://www.freecodecamp.org/news/learning-to-test-with-python-997ace2d8abe/)
 * [Python Unit Test](https://docs.python.org/2/library/unittest.html#)
 * [W3schools](https://www.w3schools.com/python/python_inheritance.asp)
+* [Python JSON](https://docs.python.org/3.8/library/json.html#basic-usage)
 
 # Future Work
 
