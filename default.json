@@ -1,0 +1,22 @@
+{
+    "player": [
+        {
+            "name": "Bob",
+            "money": 100,
+            "numKibble": 1,
+            "numCake": 0,
+            "numOrange": 0,
+            "numHedgehogs": 1
+        }
+    ],
+    "hedgehogs": [
+        {
+            "name": "Harry",
+            "hunger": 500,
+            "health": 100,
+            "hygiene": 100,
+            "canGetNewHog": true,
+            "isSpecial": false
+        }
+    ]
+}
