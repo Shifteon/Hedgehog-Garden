@@ -31,7 +31,6 @@ class Player:
             self.food.append(orange)
 
     def initializeHedgehogs(self, name, hunger, health, hygiene, canGetNewHog, isSpecial):
-        print(isSpecial)
         if isSpecial == False:
             hedgehog = Hedgehog()
             hedgehog.name = name

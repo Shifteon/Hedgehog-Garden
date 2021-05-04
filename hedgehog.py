@@ -8,12 +8,12 @@ from food import Food, Orange
 class Hedgehog:
     def __init__(self):
         self.name = "Harry"
-        self.hunger = 500
+        self.hunger = 300
         self.health = 100
         self.hygiene = 100
         self.canGetNewHog = True
         # Max stats for hedgehog. Hunger, health, hygiene
-        self.maxStats = (0, 500, 500)
+        self.maxStats = (0, 300, 300)
         self.isSpecial = False
 
     def feed(self, Food):
@@ -28,8 +28,8 @@ class Hedgehog:
         self.health += Food.nourishment
         if (self.health < 0):
             self.health = 0
-        if (self.health > 500):
-            self.health = 500
+        if (self.health > self.maxStats[1]):
+            self.health = self.maxStats[1]
         if (Food.hasEffect):
             Food.applyEffect()
 
@@ -37,19 +37,19 @@ class Hedgehog:
         """
         Wash a hedgehog.
         """
-        if (self.hygiene < 500):
+        if (self.hygiene < self.maxStats[2]):
             self.hygiene += 20
-        if (self.hygiene > 500):
-            self.hygiene = 500
+        if (self.hygiene > self.maxStats[2]):
+            self.hygiene = self.maxStats[2]
 
     def exercise(self):
         """
         Exercise a hedgehog.
         """
-        if (self.health < 500):
+        if (self.health < self.maxStats[1]):
             self.health += 20
-        if (self.health > 500):
-            self.health = 500
+        if (self.health > self.maxStats[1]):
+            self.health = self.maxStats[1]
         if (self.hygiene > 0):
             self.hygiene -= 10
 
@@ -77,8 +77,8 @@ class Hedgehog:
 class SpecialHog(Hedgehog):
     def __init__(self):
         super().__init__()
-        self.hunger = 2000
-        self.maxStats = (0, 2000, 2000)
+        self.hunger = 1000
+        self.maxStats = (0, 1000, 1000)
         self.canGetNewHog = False
         self.isSpecial = True
     

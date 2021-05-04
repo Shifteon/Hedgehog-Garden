@@ -196,15 +196,14 @@ class Game:
                 newHedgehog = SpecialHog()
                 newHedgehog.name = name
                 self.player.hedgehogs.append(newHedgehog)
-                return True
 
     def win(self):
         """
         Determines if you won the game by maxing out your max hedgehog.
         """
-        if self.canGetSpecialHog() and self.player.hedgehogs[5].isMaxStatus():
+        if len(self.player.hedgehogs) == 6 and self.player.hedgehogs[5].isSpecial and self.player.hedgehogs[5].isMaxStatus():
             print("You got your SPECIAL hedgehog to max status and won!")
-            print("Select '7' on the menu to exit the game.")
+            input("Select '8' on the menu to exit the game. [ENTER]")
 
 
     def update(self):

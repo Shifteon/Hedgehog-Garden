@@ -12,7 +12,7 @@
     "hedgehogs": [
         {
             "name": "Harry",
-            "hunger": 500,
+            "hunger": 300,
             "health": 100,
             "hygiene": 100,
             "canGetNewHog": true,
