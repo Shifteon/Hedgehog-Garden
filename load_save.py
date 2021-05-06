@@ -9,6 +9,7 @@ def save(player):
     Saves the players data into a json file.
     """
 
+    # Find out how much of each food the player has
     numKibble = 0
     numCake = 0
     numOrange = 0
@@ -20,6 +21,7 @@ def save(player):
         elif food.name == "Orange":
             numOrange += 1
 
+    # Save the player data
     data = {
         "player" : [
             {
@@ -33,6 +35,7 @@ def save(player):
         ],
     }
 
+    # Add the hedgehog data for each hedgehog the player has
     data["hedgehogs"] = []
 
     for hedgehog in player.hedgehogs:
@@ -45,6 +48,7 @@ def save(player):
             "isSpecial" : hedgehog.isSpecial
         })
 
+    # Save the save data into a json file
     with open("save.json", "w") as outfile:
         json.dump(data, outfile, indent=4)
 

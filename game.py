@@ -4,7 +4,6 @@ Author: Benjamin Wyatt
 """
 
 from hedgehog import Hedgehog, SpecialHog
-from food import Food, Orange, Kibble, Cake
 from player import Player
 from store import Store
 from load_save import save, load
@@ -42,7 +41,7 @@ class Game:
         Displays all the player's food
         """
         if len(self.player.food) == 0:
-            input("You are all out of food! Go buy some at the shop! [ENTER]")
+            print("You are all out of food! Go buy some at the shop!")
         else:
             i = 1
             for food in self.player.food:

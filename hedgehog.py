@@ -30,8 +30,6 @@ class Hedgehog:
             self.health = 0
         if (self.health > self.maxStats[1]):
             self.health = self.maxStats[1]
-        if (Food.hasEffect):
-            Food.applyEffect()
 
     def wash(self):
         """
