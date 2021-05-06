@@ -29,3 +29,4 @@ I also hope to better understand programming concepts in Python.
 
 * Refactor code
 * Improve UI
+* Add automation
