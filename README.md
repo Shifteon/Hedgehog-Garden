@@ -24,6 +24,7 @@ I also hope to better understand programming concepts in Python.
 * [Python Unit Test](https://docs.python.org/2/library/unittest.html#)
 * [W3schools](https://www.w3schools.com/python/python_inheritance.asp)
 * [Python JSON](https://docs.python.org/3.8/library/json.html#basic-usage)
+* [ascii-art](http://www.ascii-art.de/ascii/ghi/hedgehog.txt)
 
 # Future Work
 
