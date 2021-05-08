@@ -15,6 +15,6 @@ def cls():
 name = input("Enter your name: ")
 game = Game(name)
 # Loop until the player quits the game
-while(game.menu()):
+while game.menu():
     game.update()
     cls()
