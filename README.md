@@ -10,7 +10,7 @@ collect the last "special" hedgehog and max out their stats.
 By writing this software, I hope to provide a fun and relaxing game for people to enjoy.
 I also hope to better understand programming concepts in Python.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/zvX28HCPbcU)
 
 # Development Environment
 
